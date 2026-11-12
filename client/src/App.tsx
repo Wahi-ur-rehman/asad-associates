@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import Lenis from "lenis";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch, useLocation } from "wouter";
+import { Route, Switch, useLocation, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Layout from "./components/Layout";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -13,7 +13,7 @@ const Privacy = lazy(() => import("./pages/Privacy"));
 const Sitemap = lazy(() => import("./pages/Sitemap"));
 const ServicePage = lazy(() => import("./pages/ServicePage"));
 
-function Router() {
+function AppRoutes() {
   const [location] = useLocation();
   return <div className="page-enter" key={location}><Suspense fallback={<div className="route-loading">Loading Asad Associates…</div>}><Switch>
     <Route path="/" component={Home} />
@@ -48,5 +48,20 @@ export default function App() {
     };
   }, []);
 
-  return <ErrorBoundary><ThemeProvider defaultTheme="light"><TooltipProvider><Toaster /><Layout><Router /></Layout></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  const basePath = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+
+  return (
+    <ErrorBoundary>
+      <ThemeProvider defaultTheme="light">
+        <TooltipProvider>
+          <WouterRouter base={basePath}>
+            <Toaster />
+            <Layout>
+              <AppRoutes />
+            </Layout>
+          </WouterRouter>
+        </TooltipProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
+  );
 }

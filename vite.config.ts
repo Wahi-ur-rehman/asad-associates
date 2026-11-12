@@ -170,7 +170,10 @@ function vitePluginPublicPlatformConfig(): Plugin {
 
 const plugins = [vitePluginPublicPlatformConfig(), react(), tailwindcss(), jsxLocPlugin(), vitePluginManusDebugCollector()];
 
+const base = process.env.GITHUB_PAGES === "true" ? "/asad-associates/" : (process.env.BASE_URL || "/");
+
 export default defineConfig({
+  base,
   plugins,
   resolve: {
     alias: {
