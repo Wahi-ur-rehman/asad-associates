@@ -37,11 +37,10 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build static site
-        env:
-          GITHUB_PAGES: "true"
         run: |
           pnpm run build:static
           cp dist/public/index.html dist/public/404.html
+          echo "asadassociates.com" > dist/public/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
