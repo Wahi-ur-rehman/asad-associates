@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Asad Associates",
-  email: "hello@asadassociates.com",
+  email: "hamiddarboys@gmail.com",
   phone: "+92 322 5079070",
   whatsappNumber: "923225079070",
   facebookUrl: "https://www.facebook.com/share/1HQkqHLqPk/",

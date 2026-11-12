@@ -164,7 +164,7 @@ export default function Home() {
           
           <div className="contact-details">
             <a href="tel:+923225079070"><Phone size={17} />+92 322 5079070</a>
-            <a href="mailto:hello@asadassociates.com"><Mail size={17} />hello@asadassociates.com</a>
+            <a href="mailto:hamiddarboys@gmail.com"><Mail size={17} />hamiddarboys@gmail.com</a>
             <a href="https://wa.me/923225079070?text=Hello%20Asad%20Associates%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer">
               <MessageCircle size={17} />WhatsApp Direct: +92 322 5079070
             </a>
@@ -237,6 +237,13 @@ export default function Home() {
 
       <div className="flex flex-col gap-3">
         <span className="text-[10px] font-mono uppercase tracking-widest text-teal-300">Connect With Us</span>
+        <a
+          href="mailto:hamiddarboys@gmail.com"
+          className="flex items-center gap-2 text-xs text-sand/80 hover:text-white transition-colors"
+        >
+          <Mail size={15} className="text-amber-300" />
+          <span>hamiddarboys@gmail.com</span>
+        </a>
         <a
           href="https://www.facebook.com/share/1HQkqHLqPk/"
           target="_blank"
