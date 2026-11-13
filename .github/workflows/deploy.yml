@@ -40,7 +40,7 @@ jobs:
         run: |
           pnpm run build:static
           cp dist/public/index.html dist/public/404.html
-          echo "asadassociates.com" > dist/public/CNAME
+          echo "www.asadassociates.com" > dist/public/CNAME
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
